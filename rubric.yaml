@@ -1,0 +1,188 @@
+# The quality bar. Every check is HARD pass/fail. The lesson ships only if ALL checks pass.
+# This file is changed by a human only (the self-evolving loop may *propose* edits, never apply them).
+version: 1
+
+audience: >
+  A 12th-grade graduate from India with no technical background and limited English
+  vocabulary (they did not study in an English-medium school). They want to start a career in AI.
+
+thresholds:
+  reading_level:
+    max_avg_sentence_words: 14
+    max_sentence_words: 25
+    max_fk_grade: 8.0
+  length:
+    min_words: 600
+    max_words: 1200
+
+# Headings (level 2) that must appear, in this order.
+required_sections:
+  - {id: goal,    pattern: 'what you will learn|learning goals?|objectives', label: "What you will learn"}
+  - {id: what,    pattern: '^what is',                                      label: "What is {topic}?"}
+  - {id: why,     pattern: '^why',                                          label: "Why do we need {topic}?"}
+  - {id: how,     pattern: '^how',                                          label: "How {topic} works"}
+  - {id: example, pattern: 'example',                                       label: "A full example"}
+  - {id: recap,   pattern: 'recap|summary|key takeaways',                   label: "Quick recap"}
+
+plain_words:
+  idioms:
+    - game changer
+    - game-changer
+    - piece of cake
+    - under the hood
+    - out of the box
+    - rule of thumb
+    - at the end of the day
+    - ballpark
+    - silver bullet
+    - deep dive
+    - low-hanging fruit
+    - cherry-pick
+    - whole new ball game
+    - break the ice
+    - hit the ground running
+    - on the same page
+    - think outside the box
+    - tip of the iceberg
+    - needle in a haystack
+    - touch base
+    - circle back
+    - move the needle
+    - bells and whistles
+    - cutting-edge
+    - state of the art
+    - state-of-the-art
+    - bite the bullet
+    - scratch the surface
+    - the sky is the limit
+    - in a nutshell
+    - sweet spot
+    - best of both worlds
+    - from scratch
+  hard_words:
+    - utilize
+    - utilise
+    - leverage
+    - leverages
+    - leveraging
+    - paradigm
+    - seamless
+    - seamlessly
+    - myriad
+    - plethora
+    - delve
+    - ubiquitous
+    - aforementioned
+    - notwithstanding
+    - henceforth
+    - furthermore
+    - moreover
+    - hence
+    - thereby
+    - whereby
+    - commence
+    - facilitate
+    - robust
+    - holistic
+    - synergy
+  latin_abbreviations: ['e.g.', 'i.e.', 'etc.', 'viz.', 'vs.']
+
+checks:
+  # ---------- Checks done by CODE (cannot be talked around by a clever lesson) ----------
+  - id: reading_level
+    kind: code
+    title: Short, simple sentences
+    pass_if: >
+      Average sentence is at most {max_avg_sentence_words} words, no sentence is longer than
+      {max_sentence_words} words, and the Flesch-Kincaid grade is at most {max_fk_grade}.
+    fix_hint: "Keep most sentences under 15 words and none over 25. One idea per sentence. Use everyday words."
+
+  - id: structure
+    kind: code
+    title: Required sections, in teaching order
+    pass_if: >
+      The lesson has these H2 sections in this order: What you will learn, What is <topic>?,
+      Why do we need <topic>?, How <topic> works, A full example, Quick recap.
+    fix_hint: "Use exactly the required H2 headings, in the required order. Do not skip the example or the recap."
+
+  - id: length
+    kind: code
+    title: Right length for one sitting
+    pass_if: The lesson body has between {min_words} and {max_words} words.
+    fix_hint: "Aim for about 800-1000 words. Cut repeated ideas if too long; add a worked step if too short."
+
+  - id: jargon_defined
+    kind: code
+    title: Technical terms are explained where they first appear
+    pass_if: >
+      Every technical term from the topic's jargon list is defined in the same or the next
+      sentence the first time it is used (or the first use is inside the glossary).
+    fix_hint: "Define each technical word in simple words the first time you use it, e.g. 'a chunk means a small piece of a document'. Or do not use the word."
+
+  - id: no_known_misconceptions
+    kind: code
+    title: No known false claims or unsupported statistics
+    pass_if: >
+      No sentence matches the topic's list of known false claims, invented numbers/percentages,
+      or "studies show" style claims with no source.
+    fix_hint: "Remove the false or unsupported claim. Use only facts from the ground truth. Do not add percentages or numbers that are not in it."
+
+  - id: plain_words
+    kind: code
+    title: Plain English for non-native readers
+    pass_if: >
+      No idioms (for example "game changer", "under the hood"), no fancy words (for example
+      "leverage", "utilize"), and no Latin abbreviations (e.g., i.e., etc.).
+    fix_hint: "Replace idioms and fancy words with plain everyday words. Write 'for example' instead of 'e.g.'."
+
+  # ---------- Checks done by an LLM JUDGE (needs understanding) ----------
+  - id: accurate_grounded
+    kind: llm
+    title: Accurate and grounded in the ground truth
+    pass_if: >
+      Every factual claim agrees with the GROUND TRUTH. Nothing is invented (numbers, names,
+      dates, tools, statistics). The analogy and the example do not teach anything false.
+      FAIL if any claim contradicts the ground truth or cannot be supported by it.
+      Typical traps: mixing up RAG with fine-tuning/retraining; saying RAG removes hallucinations;
+      saying the whole library is sent to the LLM; saying the LLM finds the answer in its own memory;
+      wrong origin of RAG.
+    fix_hint: "Rewrite the false sentence so it matches the ground truth, or delete it."
+
+  - id: covers_key_points
+    kind: llm
+    title: Covers what, why and how
+    pass_if: >
+      The lesson EXPLAINS (not just mentions): (a) what RAG is and what each word in its name means;
+      (b) why it is needed, including all three problems (out-of-date knowledge, no access to private data,
+      hallucination); (c) how it works, including preparing the documents (chunks, embeddings, a store)
+      AND the three answer-time steps (retrieve, augment, generate); (d) at least one limit of RAG.
+    fix_hint: "Add the missing key point and explain it in 2-3 short sentences."
+
+  - id: teaches_by_example
+    kind: llm
+    title: Teaches by example
+    pass_if: >
+      There is one worked example that shows retrieve, augment and generate with real sample text
+      (a question, the text that was found, the final answer), AND one everyday-life comparison
+      (analogy) that a beginner understands. FAIL if the example is only described in general terms
+      or skips a step.
+    fix_hint: "Add a concrete worked example with real sample text for every step, and one everyday analogy."
+
+  - id: coherent_flow
+    kind: llm
+    title: Coherent teaching flow
+    pass_if: >
+      Each section builds on the one before. No idea is used before it is introduced. The order is
+      what -> why -> how -> example -> limits -> recap, and the recap matches what was actually taught.
+      FAIL if a learner would need to jump ahead or if the recap adds new ideas.
+    fix_hint: "Move or add explanations so every idea is introduced before it is used. Make the recap repeat only what was taught."
+
+  - id: audience_fit
+    kind: llm
+    title: Right for the learner
+    pass_if: >
+      A 12th-grade graduate from India with no AI background and limited English could follow it.
+      Each technical term is explained in simple words (and the explanation itself is simple, not circular).
+      No slang, no idioms, no references that need Western cultural knowledge. No talking-down words such as
+      "obviously", "simply", "just", "easy", "of course", "clearly". Examples feel familiar and neutral.
+    fix_hint: "Simplify the explanation, remove talking-down words, and use a familiar example."

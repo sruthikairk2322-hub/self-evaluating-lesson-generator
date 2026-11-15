@@ -1,0 +1,106 @@
+{
+  "passed": false,
+  "n_checks": 11,
+  "n_failed": 6,
+  "checks": [
+    {
+      "id": "reading_level",
+      "passed": false,
+      "reason": "longest sentence has 29 words (max 25)",
+      "evidence": "It is a technique where a large language model (LLM) is given relevant information, retrieved from an outside source at question time, and writes its answer using that information.",
+      "fix": "Keep most sentences under 15 words and none over 25. One idea per sentence. Use everyday words.",
+      "kind": "code",
+      "evidence_verified": true
+    },
+    {
+      "id": "structure",
+      "passed": false,
+      "reason": "Missing required section(s): What you will learn; What is <topic>?; Why do we need <topic>?; How <topic> works; A full example; Quick recap",
+      "evidence": "",
+      "fix": "Use exactly the required H2 headings, in the required order. Do not skip the example or the recap.",
+      "kind": "code",
+      "evidence_verified": true
+    },
+    {
+      "id": "length",
+      "passed": true,
+      "reason": "725 words.",
+      "evidence": "",
+      "fix": "",
+      "kind": "code",
+      "evidence_verified": true
+    },
+    {
+      "id": "jargon_defined",
+      "passed": true,
+      "reason": "Every listed technical term is explained at first use.",
+      "evidence": "",
+      "fix": "",
+      "kind": "code",
+      "evidence_verified": true
+    },
+    {
+      "id": "no_known_misconceptions",
+      "passed": true,
+      "reason": "No known false or unsupported claims found.",
+      "evidence": "",
+      "fix": "",
+      "kind": "code",
+      "evidence_verified": true
+    },
+    {
+      "id": "plain_words",
+      "passed": true,
+      "reason": "Plain words only.",
+      "evidence": "",
+      "fix": "",
+      "kind": "code",
+      "evidence_verified": true
+    },
+    {
+      "id": "accurate_grounded",
+      "passed": false,
+      "reason": "The claim that RAG reduces hallucinations but does not remove them completely contradicts the ground truth.",
+      "evidence": "",
+      "fix": "Clarify that RAG reduces hallucinations but does not remove them completely.",
+      "kind": "llm",
+      "evidence_verified": true
+    },
+    {
+      "id": "covers_key_points",
+      "passed": false,
+      "reason": "The lesson does not explain what each word in the name 'RAG' means.",
+      "evidence": "",
+      "fix": "Explain what each word in the name 'RAG' means.",
+      "kind": "llm",
+      "evidence_verified": true
+    },
+    {
+      "id": "teaches_by_example",
+      "passed": true,
+      "reason": "",
+      "evidence": "",
+      "fix": "",
+      "kind": "llm",
+      "evidence_verified": true
+    },
+    {
+      "id": "coherent_flow",
+      "passed": false,
+      "reason": "The lesson jumps from explaining how RAG works to providing an example without explaining the steps in between.",
+      "evidence": "",
+      "fix": "Explain the steps in between how RAG works.",
+      "kind": "llm",
+      "evidence_verified": true
+    },
+    {
+      "id": "audience_fit",
+      "passed": false,
+      "reason": "The lesson uses technical terms such as 'LLM' and 'database' without explaining them in simple words.",
+      "evidence": "",
+      "fix": "Explain technical terms such as 'LLM' and 'database' in simple words.",
+      "kind": "llm",
+      "evidence_verified": true
+    }
+  ]
+}

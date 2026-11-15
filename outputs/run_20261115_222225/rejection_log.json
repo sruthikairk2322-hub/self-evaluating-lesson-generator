@@ -1,0 +1,346 @@
+{
+  "run_id": "run_20261115_222225",
+  "topic": "Introduction to RAG (Retrieval-Augmented Generation)",
+  "status": "needs_human_review",
+  "final_attempt": 3,
+  "attempts": [
+    {
+      "attempt": 1,
+      "passed": false,
+      "n_failed": 8,
+      "checks": [
+        {
+          "id": "reading_level",
+          "passed": false,
+          "reason": "longest sentence has 29 words (max 25)",
+          "evidence": "It is a technique where a large language model (LLM) is given relevant information, retrieved from an outside source at question time, and writes its answer using that information.",
+          "fix": "Keep most sentences under 15 words and none over 25. One idea per sentence. Use everyday words.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "structure",
+          "passed": false,
+          "reason": "Missing required section(s): What you will learn; What is <topic>?; Why do we need <topic>?; How <topic> works; A full example; Quick recap",
+          "evidence": "",
+          "fix": "Use exactly the required H2 headings, in the required order. Do not skip the example or the recap.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "length",
+          "passed": false,
+          "reason": "Only 472 words (minimum 600).",
+          "evidence": "",
+          "fix": "Aim for about 800-1000 words. Cut repeated ideas if too long; add a worked step if too short.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "jargon_defined",
+          "passed": true,
+          "reason": "Every listed technical term is explained at first use.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "no_known_misconceptions",
+          "passed": true,
+          "reason": "No known false or unsupported claims found.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "plain_words",
+          "passed": true,
+          "reason": "Plain words only.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "accurate_grounded",
+          "passed": false,
+          "reason": "The judge's answer could not be read (Expecting ',' delimiter: line 1 column 1351 (char 1350)), so it counts as a fail.",
+          "evidence": "",
+          "fix": "Rewrite the false sentence so it matches the ground truth, or delete it.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "covers_key_points",
+          "passed": false,
+          "reason": "The judge's answer could not be read (Expecting ',' delimiter: line 1 column 1351 (char 1350)), so it counts as a fail.",
+          "evidence": "",
+          "fix": "Add the missing key point and explain it in 2-3 short sentences.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "teaches_by_example",
+          "passed": false,
+          "reason": "The judge's answer could not be read (Expecting ',' delimiter: line 1 column 1351 (char 1350)), so it counts as a fail.",
+          "evidence": "",
+          "fix": "Add a concrete worked example with real sample text for every step, and one everyday analogy.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "coherent_flow",
+          "passed": false,
+          "reason": "The judge's answer could not be read (Expecting ',' delimiter: line 1 column 1351 (char 1350)), so it counts as a fail.",
+          "evidence": "",
+          "fix": "Move or add explanations so every idea is introduced before it is used. Make the recap repeat only what was taught.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "audience_fit",
+          "passed": false,
+          "reason": "The judge's answer could not be read (Expecting ',' delimiter: line 1 column 1351 (char 1350)), so it counts as a fail.",
+          "evidence": "",
+          "fix": "Simplify the explanation, remove talking-down words, and use a familiar example.",
+          "kind": "llm",
+          "evidence_verified": false
+        }
+      ],
+      "tampered": false,
+      "changes_on_retry": [
+        "Added sentence limit to every sentence (max 25 words)",
+        "Fixed structure and length",
+        "Fixed accuracy and key point coverage",
+        "Fixed teaching by example and flow",
+        "Simplified explanation for non-native readers",
+        "Added the example of RAG reducing hallucinations",
+        "Added the list of words to know"
+      ],
+      "diff_lines": 32
+    },
+    {
+      "attempt": 2,
+      "passed": false,
+      "n_failed": 8,
+      "checks": [
+        {
+          "id": "reading_level",
+          "passed": false,
+          "reason": "longest sentence has 29 words (max 25)",
+          "evidence": "It is a technique where a large language model (LLM) is given relevant information, retrieved from an outside source at question time, and writes its answer using that information.",
+          "fix": "Keep most sentences under 15 words and none over 25. One idea per sentence. Use everyday words.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "structure",
+          "passed": false,
+          "reason": "Missing required section(s): What you will learn; What is <topic>?; Why do we need <topic>?; How <topic> works; A full example; Quick recap",
+          "evidence": "",
+          "fix": "Use exactly the required H2 headings, in the required order. Do not skip the example or the recap.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "length",
+          "passed": false,
+          "reason": "Only 595 words (minimum 600).",
+          "evidence": "",
+          "fix": "Aim for about 800-1000 words. Cut repeated ideas if too long; add a worked step if too short.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "jargon_defined",
+          "passed": true,
+          "reason": "Every listed technical term is explained at first use.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "no_known_misconceptions",
+          "passed": true,
+          "reason": "No known false or unsupported claims found.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "plain_words",
+          "passed": true,
+          "reason": "Plain words only.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "accurate_grounded",
+          "passed": false,
+          "reason": "The judge did not return a verdict for this check, so it counts as a fail.",
+          "evidence": "",
+          "fix": "Rewrite the false sentence so it matches the ground truth, or delete it.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "covers_key_points",
+          "passed": false,
+          "reason": "The judge did not return a verdict for this check, so it counts as a fail.",
+          "evidence": "",
+          "fix": "Add the missing key point and explain it in 2-3 short sentences.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "teaches_by_example",
+          "passed": false,
+          "reason": "The judge did not return a verdict for this check, so it counts as a fail.",
+          "evidence": "",
+          "fix": "Add a concrete worked example with real sample text for every step, and one everyday analogy.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "coherent_flow",
+          "passed": false,
+          "reason": "The judge did not return a verdict for this check, so it counts as a fail.",
+          "evidence": "",
+          "fix": "Move or add explanations so every idea is introduced before it is used. Make the recap repeat only what was taught.",
+          "kind": "llm",
+          "evidence_verified": false
+        },
+        {
+          "id": "audience_fit",
+          "passed": false,
+          "reason": "The lesson uses technical terms such as 'vector database' and 'knowledge cutoff' without explaining them in simple words.",
+          "evidence": "",
+          "fix": "Explain technical terms in simple words",
+          "kind": "llm",
+          "evidence_verified": true
+        }
+      ],
+      "tampered": false,
+      "changes_on_retry": [
+        "Added simple explanations for technical terms",
+        "Added the missing key point about the limit of RAG",
+        "Added a worked example with real sample text for every step",
+        "Added an everyday analogy to help understand RAG"
+      ],
+      "diff_lines": 42
+    },
+    {
+      "attempt": 3,
+      "passed": false,
+      "n_failed": 6,
+      "checks": [
+        {
+          "id": "reading_level",
+          "passed": false,
+          "reason": "longest sentence has 29 words (max 25)",
+          "evidence": "It is a technique where a large language model (LLM) is given relevant information, retrieved from an outside source at question time, and writes its answer using that information.",
+          "fix": "Keep most sentences under 15 words and none over 25. One idea per sentence. Use everyday words.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "structure",
+          "passed": false,
+          "reason": "Missing required section(s): What you will learn; What is <topic>?; Why do we need <topic>?; How <topic> works; A full example; Quick recap",
+          "evidence": "",
+          "fix": "Use exactly the required H2 headings, in the required order. Do not skip the example or the recap.",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "length",
+          "passed": true,
+          "reason": "725 words.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "jargon_defined",
+          "passed": true,
+          "reason": "Every listed technical term is explained at first use.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "no_known_misconceptions",
+          "passed": true,
+          "reason": "No known false or unsupported claims found.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "plain_words",
+          "passed": true,
+          "reason": "Plain words only.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "accurate_grounded",
+          "passed": false,
+          "reason": "The claim that RAG reduces hallucinations but does not remove them completely contradicts the ground truth.",
+          "evidence": "",
+          "fix": "Clarify that RAG reduces hallucinations but does not remove them completely.",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "covers_key_points",
+          "passed": false,
+          "reason": "The lesson does not explain what each word in the name 'RAG' means.",
+          "evidence": "",
+          "fix": "Explain what each word in the name 'RAG' means.",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "teaches_by_example",
+          "passed": true,
+          "reason": "",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "coherent_flow",
+          "passed": false,
+          "reason": "The lesson jumps from explaining how RAG works to providing an example without explaining the steps in between.",
+          "evidence": "",
+          "fix": "Explain the steps in between how RAG works.",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "audience_fit",
+          "passed": false,
+          "reason": "The lesson uses technical terms such as 'LLM' and 'database' without explaining them in simple words.",
+          "evidence": "",
+          "fix": "Explain technical terms such as 'LLM' and 'database' in simple words.",
+          "kind": "llm",
+          "evidence_verified": true
+        }
+      ],
+      "tampered": false
+    }
+  ]
+}

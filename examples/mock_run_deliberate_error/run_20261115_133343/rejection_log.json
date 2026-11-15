@@ -1,0 +1,226 @@
+{
+  "run_id": "run_20261115_133343",
+  "topic": "Introduction to RAG (Retrieval-Augmented Generation)",
+  "status": "shipped",
+  "final_attempt": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "passed": false,
+      "n_failed": 1,
+      "checks": [
+        {
+          "id": "reading_level",
+          "passed": true,
+          "reason": "avg 8.6 words/sentence, longest 21, grade 3.9",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "structure",
+          "passed": true,
+          "reason": "All required sections are present and in order.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "length",
+          "passed": true,
+          "reason": "1080 words.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "jargon_defined",
+          "passed": true,
+          "reason": "Every listed technical term is explained at first use.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "no_known_misconceptions",
+          "passed": true,
+          "reason": "No known false or unsupported claims found.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "plain_words",
+          "passed": true,
+          "reason": "Plain words only.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "accurate_grounded",
+          "passed": false,
+          "reason": "A claim contradicts the ground truth.",
+          "evidence": "In the Retrieve step, the LLM looks for the answer inside its own memory, so no database or documents are needed.",
+          "fix": "Rewrite the sentence so it matches the ground truth, or delete it.",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "covers_key_points",
+          "passed": true,
+          "reason": "What, why, how and a limit are all explained.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "teaches_by_example",
+          "passed": true,
+          "reason": "A worked example shows all three steps with sample text.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "coherent_flow",
+          "passed": true,
+          "reason": "Sections build on each other in a clear order.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "audience_fit",
+          "passed": true,
+          "reason": "Simple words and a friendly tone for a beginner.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        }
+      ],
+      "tampered": true,
+      "changes_on_retry": [
+        "Rewrote to fix the failed checks."
+      ],
+      "diff_lines": 2
+    },
+    {
+      "attempt": 2,
+      "passed": true,
+      "n_failed": 0,
+      "checks": [
+        {
+          "id": "reading_level",
+          "passed": true,
+          "reason": "avg 8.5 words/sentence, longest 21, grade 3.8",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "structure",
+          "passed": true,
+          "reason": "All required sections are present and in order.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "length",
+          "passed": true,
+          "reason": "1059 words.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "jargon_defined",
+          "passed": true,
+          "reason": "Every listed technical term is explained at first use.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "no_known_misconceptions",
+          "passed": true,
+          "reason": "No known false or unsupported claims found.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "plain_words",
+          "passed": true,
+          "reason": "Plain words only.",
+          "evidence": "",
+          "fix": "",
+          "kind": "code",
+          "evidence_verified": true
+        },
+        {
+          "id": "accurate_grounded",
+          "passed": true,
+          "reason": "Claims match the ground truth.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "covers_key_points",
+          "passed": true,
+          "reason": "What, why, how and a limit are all explained.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "teaches_by_example",
+          "passed": true,
+          "reason": "A worked example shows all three steps with sample text.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "coherent_flow",
+          "passed": true,
+          "reason": "Sections build on each other in a clear order.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        },
+        {
+          "id": "audience_fit",
+          "passed": true,
+          "reason": "Simple words and a friendly tone for a beginner.",
+          "evidence": "",
+          "fix": "",
+          "kind": "llm",
+          "evidence_verified": true
+        }
+      ],
+      "tampered": false
+    }
+  ]
+}

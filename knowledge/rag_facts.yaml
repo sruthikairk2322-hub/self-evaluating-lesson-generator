@@ -1,0 +1,91 @@
+# GROUND TRUTH for the topic. This is the only source the judge trusts for facts.
+# A human should review this file: it is the single input the whole evaluator leans on.
+topic: "Retrieval-Augmented Generation (RAG)"
+short_name: "RAG"
+
+sources:
+  - "Lewis et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. arXiv:2005.11401 (Facebook AI Research, University College London, New York University)."
+
+facts:
+  - "RAG stands for Retrieval-Augmented Generation. Retrieval = finding information. Augmented = made better by adding something. Generation = writing a new answer."
+  - "RAG is a technique where a large language model (LLM) is given relevant information, retrieved from an outside source at question time, and writes its answer using that information."
+  - "The name RAG was introduced in a 2020 research paper led by Patrick Lewis at Facebook AI Research (now Meta)."
+  - "An LLM learns from a very large amount of text during training. After training, its knowledge is fixed. The date its training data stops is called the knowledge cutoff."
+  - "Three problems RAG helps with: (1) knowledge can be out of date, (2) the LLM has no access to private or company-specific information, (3) the LLM can hallucinate, meaning it gives a confident answer that is wrong or made up."
+  - "Retraining or fine-tuning the LLM every time information changes is slow and costly. With RAG you update the documents instead. RAG does NOT change the LLM's weights."
+  - "Before any question (indexing): collect documents; split them into chunks (small pieces, often a few sentences); turn each chunk into an embedding (a list of numbers that captures its meaning; similar meanings give similar numbers); store chunks and embeddings in a vector database (or similar index)."
+  - "At question time, step 1 Retrieve: turn the question into an embedding and find the chunks closest in meaning; keep only the best few (top-k), not the whole library."
+  - "Step 2 Augment: build a prompt that contains the user's question, the retrieved chunks and an instruction (for example, answer only from the text given)."
+  - "Step 3 Generate: the LLM reads the prompt and writes the answer, grounded in the retrieved chunks. Good systems also show the sources."
+  - "Retrieval is often done by meaning (embeddings) but can also use keyword search or both."
+  - "RAG reduces hallucinations but does not remove them completely. If retrieval finds the wrong chunk, or the documents are wrong or old, the answer can still be wrong."
+  - "Common uses: company or college help bots, customer support, question answering over a set of documents, study assistants."
+
+required_points:
+  what: ["name and meaning of each word", "the three-part idea: find information, add it to the question, write the answer"]
+  why: ["knowledge is out of date", "no private data", "hallucination", "retraining is slow and costly"]
+  how: ["chunks", "embeddings", "store (vector database)", "retrieve", "augment (prompt)", "generate"]
+  example: ["question", "retrieved text", "prompt", "final answer"]
+  limits: ["wrong chunk found", "old or wrong documents", "hallucination reduced, not removed"]
+
+common_mistakes:
+  - "Saying RAG retrains, fine-tunes or changes the LLM."
+  - "Saying RAG removes or guarantees no hallucinations."
+  - "Saying the whole document library is sent to the LLM (only the best few chunks are)."
+  - "Saying the LLM finds the answer in its own memory in step 1 (retrieval searches an outside document store)."
+  - "Giving a wrong origin (it is not from Google, OpenAI or Microsoft) or a wrong year."
+  - "Inventing statistics such as 'reduces errors by 40%'."
+
+# Technical words that must be explained where they first appear.
+jargon:
+  - {name: LLM,               aliases: ["large language model", "large language models", "LLM", "LLMs"]}
+  - {name: training,          aliases: ["training", "trained", "train"]}
+  - {name: knowledge cutoff,  aliases: ["knowledge cutoff"]}
+  - {name: hallucination,     aliases: ["hallucination", "hallucinations", "hallucinate", "hallucinates"]}
+  - {name: chunk,             aliases: ["chunk", "chunks"]}
+  - {name: embedding,         aliases: ["embedding", "embeddings"]}
+  - {name: vector,            aliases: ["vector", "vectors"]}
+  - {name: vector database,   aliases: ["vector database", "vector databases"]}
+  - {name: prompt,            aliases: ["prompt", "prompts"]}
+  - {name: token,             aliases: ["token", "tokens"]}
+  - {name: context window,    aliases: ["context window"]}
+  - {name: fine-tuning,       aliases: ["fine-tuning", "fine-tune", "fine-tuned"]}
+  - {name: cosine similarity, aliases: ["cosine similarity"]}
+  - {name: latent space,      aliases: ["latent space"]}
+  - {name: high-dimensional,  aliases: ["high-dimensional"]}
+  - {name: semantic search,   aliases: ["semantic search"]}
+  - {name: API,               aliases: ["API", "APIs"]}
+
+# Regex tripwires for known false claims. A sentence that matches fails the check,
+# unless skip_if_negated is true and the sentence contains a negation ("does not ...").
+wrong_claims:
+  - pattern: '\b(RAG|it)\b[^.?!]*\b(changes|changed|updates|updated|modifies|rewrites|edits)\b[^.?!]*\b(weights|parameters)\b'
+    skip_if_negated: true
+    why: "RAG does not change the LLM's weights."
+  - pattern: '\bRAG\b[^.?!]*\b(retrain|re-train|fine-?tun)\w*'
+    skip_if_negated: true
+    why: "RAG does not retrain or fine-tune the LLM."
+  - pattern: '\b(eliminat|remov|prevent|stop|end|solv|cur)\w*\s+(all\s+|every\s+)?(the\s+)?hallucinat\w*'
+    skip_if_negated: true
+    why: "RAG reduces hallucinations; it does not remove them."
+  - pattern: '\bRAG\b[^.?!]*\b(never|no longer)\b[^.?!]*\b(wrong|hallucinat|mistake)\w*'
+    skip_if_negated: false
+    why: "RAG answers can still be wrong."
+  - pattern: '\b(guarantee[sd]?|always)\b[^.?!]*\b(correct|accurate|true)\b'
+    skip_if_negated: true
+    why: "Nothing guarantees correct answers."
+  - pattern: '\b(invent|introduc|creat|develop|propos|nam)\w*\b[^.?!]*\b(Google|OpenAI|Microsoft|Amazon|DeepMind|IBM|Apple|Anthropic)\b'
+    skip_if_negated: false
+    why: "RAG was introduced by Facebook AI Research (now Meta) in 2020."
+  - pattern: '\b(RAG|paper|idea|research)\b[^.?!]*\b(19\d\d|200\d|201\d|202[1-9])\b'
+    skip_if_negated: false
+    why: "The RAG paper is from 2020."
+  - pattern: '\b(whole|entire|all)\b[^.?!]*\b(library|database|documents|chunks)\b[^.?!]*\b(to|into)\b[^.?!]*\b(LLM|model|prompt)\b'
+    skip_if_negated: true
+    why: "Only the best few chunks are sent to the LLM, not the whole library."
+  - pattern: '\b\d+(\.\d+)?\s?%|\b(percent|per cent)\b'
+    skip_if_negated: false
+    why: "Unsupported statistic. The ground truth has no percentages."
+  - pattern: '\b(studies|research|experts|scientists|surveys)\s+(show|shows|prove|proves|say|says|found|agree)\b'
+    skip_if_negated: false
+    why: "Unsupported appeal to unnamed studies."
